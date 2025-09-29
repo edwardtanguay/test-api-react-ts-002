@@ -31,3 +31,13 @@ div.area {
 		color: goldenrod;
 	}
 }
+
+nav {
+	display: flex;
+	gap: .5rem;
+	div {
+		a {
+			color: rgb(235, 235, 109);
+		}
+	}
+}

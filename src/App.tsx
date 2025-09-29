@@ -1,4 +1,5 @@
-import { Test001 } from "./components/Test001"
+import { Outlet } from "react-router-dom"
+import { Nav } from "./components/Nav"
 
 function App() {
 
@@ -6,9 +7,10 @@ function App() {
 		<>
 			<h1>App 001</h1>
 			<p>Welcome to this app.</p>
+			<Nav />
 
 			<div className="areas">
-				<Test001 />
+				<Outlet />
 			</div>
 		</>
 	)
