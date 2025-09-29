@@ -19,7 +19,7 @@ export const Products = () => {
 			const _categories = await response.json();
 			setCategories(_categories);
 		})();
-	});
+	}, []);
 
 	useEffect(() => {
 		(async () => {
@@ -31,7 +31,14 @@ export const Products = () => {
 			const _products = response.data;
 			setProducts(_products);
 		})();
-	})
+	}, [])
+
+	useEffect(() => {
+		if (categories.length > 0 && products.length > 0) {
+			
+			console.log(111, `total = ${categories.length + products.length}`);
+		}
+	}, [categories, products])
 
 	return (
 		<div className="area areaProduct">

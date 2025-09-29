@@ -9,3 +9,8 @@ export type Product = {
 	categoryID: number;
 	name: number;
 }
+
+export type DisplayProduct = {
+	productName: string;
+	productCategory: string;
+}
