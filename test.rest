@@ -1,0 +1,11 @@
+@url = http://localhost:3399
+@token = abcde12345
+
+### PRODUCTS
+GET {{url}}/northwind/products
+Authorization: Bearer {{token}}
+
+### CATEGORIES
+GET {{url}}/northwind/categories
+Authorization: Bearer {{token}}
+
