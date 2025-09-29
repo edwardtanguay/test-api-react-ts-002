@@ -1,5 +1,5 @@
 export type Category = {
-	categoryID: string;
+	categoryID: number;
 	description: string;
 	name: string;
 }
@@ -7,7 +7,7 @@ export type Category = {
 export type Product = {
 	productID: number;
 	categoryID: number;
-	name: number;
+	name: string;
 }
 
 export type DisplayProduct = {

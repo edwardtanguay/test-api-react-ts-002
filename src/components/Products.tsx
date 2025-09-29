@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { type Product, type Category } from "../types";
+import { type Product, type Category, type DisplayProduct } from "../types";
 import axios from "axios";
 
 const baseApiUrl = 'http://localhost:3399';
@@ -8,6 +8,7 @@ const token = 'abcde12345';
 export const Products = () => {
 	const [categories, setCategories] = useState<Category[]>([]);
 	const [products, setProducts] = useState<Product[]>([]);
+	const [displayProducts, setDisplayProducts] = useState<DisplayProduct[]>([]);
 
 	useEffect(() => {
 		(async () => {
@@ -35,16 +36,27 @@ export const Products = () => {
 
 	useEffect(() => {
 		if (categories.length > 0 && products.length > 0) {
-			
-			console.log(111, `total = ${categories.length + products.length}`);
+			const _displayProducts: DisplayProduct[] = products.map(p => {
+				const _category = categories.find(c => c.categoryID === p.categoryID);
+				return {
+					productName: p.name,
+					productCategory: _category ? _category.name : "(not found)"
+				}
+			})
+			setDisplayProducts(_displayProducts);
 		}
 	}, [categories, products])
 
 	return (
 		<div className="area areaProduct">
-			<h2>Products</h2>
-			<p>There are {categories.length} categories.</p>
-			<p>There are {products.length} products.</p>
+			<h2>Test001: List Products with Category Information</h2>
+			<ul className="displayProductsList">
+				{displayProducts.map((dprod, index) => {
+					return (
+						<li key={index}>{dprod.productName} <span className="productCategory">({dprod.productCategory})</span></li>
+					)
+				})}
+			</ul>
 		</div>
 	)
 }
