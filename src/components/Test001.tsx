@@ -5,7 +5,7 @@ import axios from "axios";
 const baseApiUrl = 'http://localhost:3399';
 const token = 'abcde12345';
 
-export const Products = () => {
+export const Test001 = () => {
 	const [categories, setCategories] = useState<Category[]>([]);
 	const [products, setProducts] = useState<Product[]>([]);
 	const [displayProducts, setDisplayProducts] = useState<DisplayProduct[]>([]);
@@ -48,7 +48,7 @@ export const Products = () => {
 	}, [categories, products])
 
 	return (
-		<div className="area areaProduct">
+		<div className="area areaTest001">
 			<h2>Test001: List Products with Category Information</h2>
 			<ul className="displayProductsList">
 				{displayProducts.map((dprod, index) => {

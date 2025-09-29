@@ -1,4 +1,4 @@
-import { Products } from "./components/Products"
+import { Test001 } from "./components/Test001"
 
 function App() {
 
@@ -8,7 +8,7 @@ function App() {
 			<p>Welcome to this app.</p>
 
 			<div className="areas">
-				<Products />
+				<Test001 />
 			</div>
 		</>
 	)

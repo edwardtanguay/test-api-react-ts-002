@@ -16,15 +16,18 @@ div.area {
 	background-color: #222;
 	padding: .5rem 1rem;
 	border-radius: .5rem;
+
 	h2 {
 		color: rgb(212, 192, 153);
 	}
 }
 
-ul.displayProductsList {
-	margin-left: 2rem;
-}
+.areaTest001 {
+	ul.displayProductsList {
+		margin-left: 2rem;
+	}
 
-.productCategory {
-	color: goldenrod;
+	.productCategory {
+		color: goldenrod;
+	}
 }
