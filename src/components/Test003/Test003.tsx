@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ChangeEvent } from "react";
 import type { DisplayProduct, Category, Product } from "../../types";
 import "./styles.css";
 
@@ -10,6 +10,7 @@ export const Test003 = () => {
 	const [products, setProducts] = useState<Product[]>([]);
 	const [categories, setCategories] = useState<Category[]>([]);
 	const [displayProducts, setDisplayProducts] = useState<DisplayProduct[]>([]);
+	const [searchText, setSearchText] = useState("")
 
 	useEffect(() => {
 		(async () => {
@@ -49,11 +50,16 @@ export const Test003 = () => {
 
 	}, [categories, products])
 
+	const handleSearchBoxTyping = (e:ChangeEvent<HTMLInputElement>) => {
+		const _searchText = e.target.value;
+		setSearchText(_searchText);
+	}
+
 	return (
 		<div className="area areaTest003">
 			<h2>Test003: Search box</h2>
 			<div className="searchArea">
-				<input />
+				<input value={searchText} onChange={(e) => handleSearchBoxTyping(e)} />
 			</div>
 			<ul>
 				{displayProducts.map((dp, idx) => {
