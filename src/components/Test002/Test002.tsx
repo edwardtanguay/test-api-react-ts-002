@@ -1,6 +1,7 @@
 import { useEffect, useState, type ChangeEvent } from "react";
-import type { Category, Product } from "../types";
+import type { Category, Product } from "../../types";
 import axios from "axios";
+import './styles.css';
 
 const baseApiUrl = 'http://localhost:3399';
 const token = 'abcde12345';
@@ -43,24 +44,25 @@ export const Test002 = () => {
 	return (
 		<div className="area areaTest002">
 			<h2>Test002: Choose Category to See Products</h2>
-			<p>There are {products.length} products.</p>
-			<p>There are {categories.length} categories.</p>
-			<select onChange={(e) => handleSelectCategory(e)}>
-				<option value={0} key={0}>PLEASE CHOOSE</option>
-				{categories.map((cat) => {
-					return (
-						<option value={cat.categoryID} key={cat.categoryID}>{cat.name}</option>
-					)
-				})}
-			</select>
-			<div className="selectedProducts">
-				<ul>
-					{selectedProducts.map((sp) => {
+
+			<div className="productSelector">
+				<select onChange={(e) => handleSelectCategory(e)}>
+					<option value={0} key={0}>PLEASE CHOOSE</option>
+					{categories.map((cat) => {
 						return (
-							<li key={sp.productID}>{sp.name}</li>
+							<option value={cat.categoryID} key={cat.categoryID}>{cat.name}</option>
 						)
 					})}
-				</ul>
+				</select>
+				<div className="selectedProducts">
+					<ul>
+						{selectedProducts.map((sp) => {
+							return (
+								<li key={sp.productID}>{sp.name}</li>
+							)
+						})}
+					</ul>
+				</div>
 			</div>
 		</div>
 	)

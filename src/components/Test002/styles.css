@@ -1,0 +1,15 @@
+.areaTest002 {
+	.productSelector {
+		margin-top: 1rem;
+		background-color: #555;
+		padding: 1rem;
+		border-radius: .5rem;
+
+		.selectedProducts {
+			margin-top: .5rem;
+			ul {
+				margin-left: 1rem;
+			}
+		}
+	}
+}
