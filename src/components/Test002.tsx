@@ -38,6 +38,13 @@ export const Test002 = () => {
 			<h2>Test002: Choose Category to See Products</h2>
 			<p>There are {products.length} products.</p>
 			<p>There are {categories.length} categories.</p>
+			<select>
+				{categories.map((cat) => {
+					return (
+						<option key={cat.categoryID}>{cat.name}</option>
+					)
+				})}
+			</select>
 		</div>
 	)
 }
