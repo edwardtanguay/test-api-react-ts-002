@@ -9,8 +9,9 @@ const token = 'abcde12345';
 export const Test003 = () => {
 	const [products, setProducts] = useState<Product[]>([]);
 	const [categories, setCategories] = useState<Category[]>([]);
-	const [displayProducts, setDisplayProducts] = useState<DisplayProduct[]>([]);
 	const [searchText, setSearchText] = useState("")
+	const [displayProducts, setDisplayProducts] = useState<DisplayProduct[]>([]);
+	const [filteredDisplayProducts, setfilteredDisplayProducts] = useState<DisplayProduct[]>([]);
 
 	useEffect(() => {
 		(async () => {
@@ -53,6 +54,8 @@ export const Test003 = () => {
 	const handleSearchBoxTyping = (e:ChangeEvent<HTMLInputElement>) => {
 		const _searchText = e.target.value;
 		setSearchText(_searchText);
+		const _filteredDisplayProducts = displayProducts;
+		setfilteredDisplayProducts(_filteredDisplayProducts);
 	}
 
 	return (
@@ -62,7 +65,7 @@ export const Test003 = () => {
 				<input value={searchText} onChange={(e) => handleSearchBoxTyping(e)} />
 			</div>
 			<ul>
-				{displayProducts.map((dp, idx) => {
+				{filteredDisplayProducts.map((dp, idx) => {
 					return (
 						<li key={idx}>{dp.productName} ({dp.productCategory})</li>
 					)
