@@ -35,7 +35,7 @@ export const Test002 = () => {
 
 	const handleSelectCategory = (event:ChangeEvent<HTMLSelectElement>) => {
 		const category = event.target.value;
-		console.log('selected category: ' + category);
+		console.log('selected categoryID: ' + category);
 	}
 
 	return (
@@ -44,9 +44,10 @@ export const Test002 = () => {
 			<p>There are {products.length} products.</p>
 			<p>There are {categories.length} categories.</p>
 			<select onChange={(e) => handleSelectCategory(e)}>
+				<option value={0} key={0}>PLEASE CHOOSE</option>
 				{categories.map((cat) => {
 					return (
-						<option key={cat.categoryID}>{cat.name}</option>
+						<option value={cat.categoryID} key={cat.categoryID}>{cat.name}</option>
 					)
 				})}
 			</select>
