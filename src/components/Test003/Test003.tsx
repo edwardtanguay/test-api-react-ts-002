@@ -52,7 +52,9 @@ export const Test003 = () => {
 	return (
 		<div className="area areaTest003">
 			<h2>Test003: Search box</h2>
-			<p>There are {displayProducts.length} products.</p>
+			<div className="searchArea">
+				<input />
+			</div>
 			<ul>
 				{displayProducts.map((dp, idx) => {
 					return (
