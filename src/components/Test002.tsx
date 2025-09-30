@@ -1,8 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { Product } from "../types";
+
+const baseApiUrl = 'http://localhost:3399';
+const token = 'abcde12345';
 
 export const Test002 = () => {
 	const [products, setProducts] = useState<Product[]>([]);
+
+	useEffect(() => {
+		(async () => {
+			const response = await fetch(`${baseApiUrl}/northwind/products`, {
+				headers: {
+					Authorization: `Bearer ${token}`
+				}
+			});
+			const _products = await response.json();
+			setProducts(_products);
+		})();
+	}, [])
 
 	return (
 		<div className="area areaTest002">
