@@ -54,7 +54,7 @@ export const Test003 = () => {
 	const handleSearchBoxTyping = (e:ChangeEvent<HTMLInputElement>) => {
 		const _searchText = e.target.value;
 		setSearchText(_searchText);
-		const _filteredDisplayProducts = displayProducts;
+		const _filteredDisplayProducts = displayProducts.filter(dp => dp.productCategory.toLowerCase().includes(_searchText.toLowerCase()) || dp.productName.toLowerCase().includes(_searchText.toLowerCase()));
 		setfilteredDisplayProducts(_filteredDisplayProducts);
 	}
 
