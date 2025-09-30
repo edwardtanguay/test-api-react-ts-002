@@ -8,6 +8,7 @@ const token = 'abcde12345';
 export const Test002 = () => {
 	const [products, setProducts] = useState<Product[]>([]);
 	const [categories, setCategories] = useState<Category[]>([]);
+	const [selectedProducts, setSelectedProducts] = useState<Product[]>([]);
 
 	useEffect(() => {
 		(async () => {
@@ -33,9 +34,10 @@ export const Test002 = () => {
 		})();
 	}, [])
 
-	const handleSelectCategory = (event:ChangeEvent<HTMLSelectElement>) => {
-		const category = event.target.value;
-		console.log('selected categoryID: ' + category);
+	const handleSelectCategory = (event: ChangeEvent<HTMLSelectElement>) => {
+		const categoryID = event.target.value;
+		const _selectedProducts = products.filter(p => String(p.categoryID) === categoryID);
+		setSelectedProducts(_selectedProducts);
 	}
 
 	return (
@@ -51,6 +53,15 @@ export const Test002 = () => {
 					)
 				})}
 			</select>
+			<div className="selectedProducts">
+				<ul>
+					{selectedProducts.map((sp) => {
+						return (
+							<li key={sp.productID}>{sp.name}</li>
+						)
+					})}
+				</ul>
+			</div>
 		</div>
 	)
 }
